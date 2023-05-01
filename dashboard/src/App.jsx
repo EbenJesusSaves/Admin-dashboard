@@ -1,9 +1,81 @@
 import React from "react";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import "./App.css";
+import { FiSettings } from "react-icons/fi";
+
+const Ecommerce = () => {
+  return <div>hi to stop the nonsense</div>;
+};
 
 const App = () => {
-  return <h1 className="underline text-3xl">App</h1>;
+  const activeMenu = true;
+  return (
+    <div>
+      <BrowserRouter>
+        <div className="flex relative dark:bg-main-dark-bg">
+          <div className=" fixed right-4 bottom-4 " style={{ zIndex: "1000" }}>
+            <TooltipComponent content="settings" position="bottom">
+              <button
+                type="button  "
+                className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white "
+                style={{
+                  backgroundColor: "green",
+                  borderRadius: "50%",
+                }}
+              >
+                <FiSettings />
+              </button>
+            </TooltipComponent>
+          </div>
+
+          {activeMenu ? (
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg">
+              Sidebar
+            </div>
+          ) : (
+            <div className=" w-0 bg-secondary-dark-bg ">Sidebar with p </div>
+          )}
+
+          <div
+            className={` dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
+              activeMenu ? "md:ml-72" : "flex-2"
+            } `}
+          >
+            <div className=" fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full  ">
+              NavBar
+            </div>
+            <Routes>
+              <Route path="/" element={Ecommerce} />
+              <Route path="/ecommerce" element={Ecommerce} />
+
+              {/* pages */}
+              <Route path="/oders" element={Ecommerce} />
+              <Route path="/employees" element={Ecommerce} />
+              <Route path="/customers" element={Ecommerce} />
+
+              {/* Apps  */}
+
+              <Route path="/kanban" element={Ecommerce} />
+              <Route path="/editor" element={Ecommerce} />
+              <Route path="/calender" element={Ecommerce} />
+              <Route path="/color-picker" element={Ecommerce} />
+
+              {/* charts */}
+              <Route path="/line" element={Ecommerce} />
+              <Route path="/area" element={Ecommerce} />
+              <Route path="/bar" element={Ecommerce} />
+              <Route path="/pie" element={Ecommerce} />
+              <Route path="/financial " element={Ecommerce} />
+              <Route path="/color-mapping" element={Ecommerce} />
+              <Route path="/pyramid" element={Ecommerce} />
+              <Route path="/stacked" element={Ecommerce} />
+            </Routes>
+          </div>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default App;
