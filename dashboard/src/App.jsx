@@ -4,9 +4,28 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import "./App.css";
 import { FiSettings } from "react-icons/fi";
 
-const Ecommerce = () => {
-  return <div>hi to stop the nonsense</div>;
-};
+import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+
+import {
+  Orders,
+  Ecommerce,
+  Calendar,
+  Employees,
+  Stacked,
+  Pyramid,
+  Customers,
+  Kanban,
+  Line,
+  Area,
+  Bar,
+  Pie,
+  Financial,
+  ColorPicker,
+  ColorMapping,
+  Editor,
+} from "./pages";
+
+const Test = "just hi ";
 
 const App = () => {
   const activeMenu = true;
@@ -31,10 +50,12 @@ const App = () => {
 
           {activeMenu ? (
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg">
-              Sidebar
+              <Sidebar />
             </div>
           ) : (
-            <div className=" w-0 bg-secondary-dark-bg ">Sidebar with p </div>
+            <div className=" w-0 bg-secondary-dark-bg ">
+              <Sidebar />{" "}
+            </div>
           )}
 
           <div
@@ -43,33 +64,33 @@ const App = () => {
             } `}
           >
             <div className=" fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full  ">
-              NavBar
+              <Navbar />
             </div>
             <Routes>
-              <Route path="/" element={Ecommerce} />
-              <Route path="/ecommerce" element={Ecommerce} />
+              <Route path="/" element={<Ecommerce />} />
+              <Route path="/ecommerce" element={<Ecommerce />} />
 
               {/* pages */}
-              <Route path="/oders" element={Ecommerce} />
-              <Route path="/employees" element={Ecommerce} />
-              <Route path="/customers" element={Ecommerce} />
+              <Route path="/oders" element={<Orders />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/customers" element={<Customers />} />
 
               {/* Apps  */}
 
-              <Route path="/kanban" element={Ecommerce} />
-              <Route path="/editor" element={Ecommerce} />
-              <Route path="/calender" element={Ecommerce} />
-              <Route path="/color-picker" element={Ecommerce} />
+              <Route path="/kanban" element={<Kanban />} />
+              <Route path="/editor" element={<Editor />} />
+              <Route path="/calender" element={<Calendar />} />
+              <Route path="/color-picker" element={<ColorPicker />} />
 
               {/* charts */}
-              <Route path="/line" element={Ecommerce} />
-              <Route path="/area" element={Ecommerce} />
-              <Route path="/bar" element={Ecommerce} />
-              <Route path="/pie" element={Ecommerce} />
-              <Route path="/financial " element={Ecommerce} />
-              <Route path="/color-mapping" element={Ecommerce} />
-              <Route path="/pyramid" element={Ecommerce} />
-              <Route path="/stacked" element={Ecommerce} />
+              <Route path="/line" element={<Line />} />
+              <Route path="/area" element={<Area />} />
+              <Route path="/bar" element={<Bar />} />
+              <Route path="/pie" element={<Pie />} />
+              <Route path="/financial " element={<Financial />} />
+              <Route path="/color-mapping" element={<ColorMapping />} />
+              <Route path="/pyramid" element={<Pyramid />} />
+              <Route path="/stacked" element={<Stacked />} />
             </Routes>
           </div>
         </div>
