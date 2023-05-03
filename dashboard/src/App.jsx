@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import "./App.css";
@@ -24,11 +24,12 @@ import {
   ColorMapping,
   Editor,
 } from "./pages";
+import { useStateContext } from "./context/ContextProvider";
 
 const Test = "just hi ";
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
   return (
     <div>
       <BrowserRouter>
