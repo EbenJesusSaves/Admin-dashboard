@@ -12,6 +12,7 @@ const intialState = {
 export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(intialState);
+  const [screenSize, setScreenSize] = useState(undefined);
 
   const handleClick = (val) => {
     setIsClicked({ ...intialState, [val]: true });
@@ -25,6 +26,8 @@ export const ContextProvider = ({ children }) => {
         setActiveMenu,
         isClicked,
         setIsClicked,
+        screenSize,
+        setScreenSize,
       }}
     >
       {children}
