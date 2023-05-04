@@ -4,7 +4,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { BsChatLeft } from "react-icons/bs";
 import { RiNotificationLine } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
+import { Cart, UserProfile, Notification, Chat } from ".";
 import avatar from "../data/avatar.jpg";
 
 import { useStateContext } from "../context/ContextProvider";
@@ -28,10 +28,9 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   </TooltipComponent>
 );
 
-const handleClick = (val) => {};
-
 const Navbar = () => {
-  const { activeMene, setActiveMenu } = useStateContext();
+  const { activeMene, setActiveMenu, isClicked, setIsClicked, handleClick } =
+    useStateContext();
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
@@ -50,11 +49,11 @@ const Navbar = () => {
           customFunc={() => handleClick("cart")}
         />
         <NavButton
-          title="Chart"
+          title="Chat"
           dotColor="#03c9d7"
           icon={<BsChatLeft />}
           color="green"
-          customFunc={() => handleClick("chart")}
+          customFunc={() => handleClick("chat")}
         />
         <NavButton
           title="Notification"
@@ -74,6 +73,10 @@ const Navbar = () => {
           content="Profile"
           position="BottomCenter"
         ></TooltipComponent>
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );
